@@ -3,8 +3,9 @@ import { Consumer} from './context';
 
 type Feature = { [key: string]: string }
 export type Features = { features: Feature }
-type CustomComponent<T extends object> = React.ComponentType<T & Features>
-type CustomChildren<T extends object> = React.ReactElement<Features> | CustomComponent<T>
+type FeaturesList = { featuresList: Feature}
+type CustomComponent<T extends object> = React.ComponentType<T & FeaturesList>
+type CustomChildren<T extends object> = React.ReactElement<FeaturesList> | CustomComponent<T>
 
 interface FeatureProps<T extends object> {
   children: (features: Features) => CustomChildren<T>
@@ -22,11 +23,11 @@ export const Feature = <T extends object>({
   props
 }: FeatureProps<T>): React.ReactElement => (
   <Consumer>
-    {({features}): CustomChildren<T> => {
+    {({ features}): CustomChildren<T> => {
       const Component = features[name] ? activeComponent : inactiveComponent;
 
       return activeComponent && Component
-        ? <Component {...props} features={features} />
+        ? <Component {...props} featuresList={features} />
         : children({ features })
     }}
   </Consumer>
