@@ -1,8 +1,6 @@
 import React from 'react';
+import { Features } from './feature';
 
-export interface ContextProps {
-  features: Array<object>
-}
-
-export const { Consumer, Provider } = React.createContext<Partial<ContextProps>>({features: []});
-
+export const { Consumer, Provider } = React.createContext<Features>({
+  features: {},
+});
