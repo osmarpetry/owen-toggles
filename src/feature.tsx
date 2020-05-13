@@ -5,12 +5,9 @@ export type FeatureType = { [key: string]: boolean };
 export type FeaturesType = { features: FeatureType };
 type FeaturesList = { featuresList: FeatureType };
 export type CustomComponent<T extends object> = React.ComponentType<T & FeaturesList>;
-type CustomChildren<T extends object> =
-  | React.ReactElement<FeaturesList>
-  | CustomComponent<T>;
 
 interface FeatureProps<T extends object> {
-  children?: (features: FeaturesType) => CustomChildren<T>;
+  children?: (features: FeaturesType) => React.ReactElement;
   activeComponent?: CustomComponent<T>;
   inactiveComponent?: CustomComponent<T>;
   name: string;
@@ -19,13 +16,13 @@ interface FeatureProps<T extends object> {
 
 export const Feature = <T extends object>({
   activeComponent,
-  children = () => null,
+  children = (): React.ReactElement => <></>,
   inactiveComponent,
   name,
   props,
 }: FeatureProps<T>): React.ReactElement => (
   <Consumer>
-    {({ features }): CustomChildren<T> => {
+    {({ features }): React.ReactElement => {
       const Component = features[name] ? activeComponent : inactiveComponent;
 
       return activeComponent && Component ? (
