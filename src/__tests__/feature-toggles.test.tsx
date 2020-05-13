@@ -2,12 +2,12 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import { FeatureToggles } from '../feature-toggles';
-import { Feature } from '../feature';
+import { CustomComponent, Feature } from '../feature';
 
 describe('<Feature/>', () => {
   it('should render feature', () => {
     const features = { CONFIG_INFRACTIONS: true };
-    const Button = () => <button data-testid="config">Button Config</button>;
+    const Button: CustomComponent<object> = () => <button data-testid="config">Button Config</button>;
 
     const { queryByTestId } = render(
       <FeatureToggles features={features}>
@@ -19,7 +19,7 @@ describe('<Feature/>', () => {
 
   it('should not render feature', () => {
     const features = { CONFIG_INFRACTIONS: false };
-    const Button = () => <button data-testid="config">Button Config</button>;
+    const Button: CustomComponent<object> = () => <button data-testid="config">Button Config</button>;
 
     const { queryByTestId } = render(
       <FeatureToggles features={features}>

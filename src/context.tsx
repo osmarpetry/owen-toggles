@@ -1,6 +1,6 @@
 import React from 'react';
-import { Features } from './feature';
+import { FeaturesType } from './feature';
 
-export const { Consumer, Provider } = React.createContext<Features>({
+export const { Consumer, Provider } = React.createContext<FeaturesType>({
   features: {},
 });
