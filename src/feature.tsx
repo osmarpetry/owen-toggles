@@ -1,10 +1,9 @@
-import React from 'react';
-import { Consumer } from './context';
+import React from "react";
+import { Consumer } from "./context";
 
 export type FeatureType = { [key: string]: boolean };
 export type FeaturesType = { features: FeatureType };
-type FeaturesList = { featuresList: FeatureType };
-export type CustomComponent<T extends object> = React.ComponentType<T & FeaturesList>;
+export type CustomComponent<T extends object> = React.ComponentType<T>;
 
 interface FeatureProps<T extends object> {
   children?: (features: FeaturesType) => React.ReactElement;
@@ -19,14 +18,14 @@ export const Feature = <T extends object>({
   children = (): React.ReactElement => <></>,
   inactiveComponent,
   name,
-  props,
+  props
 }: FeatureProps<T>): React.ReactElement => (
   <Consumer>
     {({ features }): React.ReactElement => {
       const Component = features[name] ? activeComponent : inactiveComponent;
 
       return activeComponent && Component ? (
-        <Component {...props} featuresList={features} />
+        <Component {...props} />
       ) : (
         children({ features })
       );
