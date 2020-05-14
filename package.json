@@ -1,5 +1,7 @@
 {
   "name": "owen-toggles",
+  "description": "HOC to toggle components by features on or off",
+  "license": "MIT",
   "version": "0.1.0",
   "main": "build/index.js",
   "module": "build/index.es.js",
