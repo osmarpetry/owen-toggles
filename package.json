@@ -1,5 +1,5 @@
 {
-  "name": "owen-toggles",
+  "name": "@zup-stark/owen-toggles",
   "description": "HOC to toggle components by features on or off",
   "license": "MIT",
   "version": "0.1.0",
@@ -57,5 +57,22 @@
       "prettier --write",
       "eslint --fix"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osmarpetry/owen-toggles.git"
+  },
+  "keywords": [
+    "react",
+    "hoc",
+    "toggles",
+    "flags",
+    "typescript",
+    "zup"
+  ],
+  "author": "osmarpetry",
+  "bugs": {
+    "url": "https://github.com/osmarpetry/owen-toggles/issues"
+  },
+  "homepage": "https://github.com/osmarpetry/owen-toggles#readme"
 }
