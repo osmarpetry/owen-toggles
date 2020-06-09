@@ -1,5 +1,20 @@
+<!-- Logo -->
+<p align="center">
+  <img width="150" src="logo.png" alt="Owen-Toggles logo"></a></p>
+</p>
+
+<!-- Name -->
 <h1 align="center">Owen-Toggles</h1>
 
+<!-- Badges -->
+<div align="center">
+
+[React](http://facebook.github.io/react/) UI toolkit for the web.
+
+![npm version](https://img.shields.io/npm/v/@zup-stark/owen-toggles.svg)
+![npm licence](https://img.shields.io/npm/l/@zup-stark/owen-toggles.svg)
+
+</div>
 
 [React](http://facebook.github.io/react/) HOC to toggle components by features on or off.
 
