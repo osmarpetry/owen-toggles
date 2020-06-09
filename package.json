@@ -2,7 +2,7 @@
   "name": "@zup-stark/owen-toggles",
   "description": "HOC to toggle components by features on or off",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "build/index.js",
   "module": "build/index.es.js",
   "jsnext:main": "build/index.es.js",
