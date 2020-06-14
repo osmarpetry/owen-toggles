@@ -33,7 +33,7 @@ First you should declare `<FeatureToggles />` in your main container. Don't forg
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { FeatureToggles } from 'owen-toggles';
+import { FeatureToggles } from '@zup-stark/owen-toggles';
 
 import { getTogglesFromTheBackend } from 'core/utils/feature-toggles';
 
@@ -60,21 +60,28 @@ Then you implement a component (`<AwesomeComponent />` in this case) inside `<Fe
 
 ```jsx
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { Feature } from 'owen-toggles'
+import { Feature } from '@zup-stark/owen-toggles'
 
-import AwesomeComponent from 'components/AwesomeComponent'
+import AwesomeComponent from '../components/AwesomeComponent'
 
-return (
-  <Feature
-    name="FEATURE_NAME_HERE"
-    activeComponent={AwesomeComponent}
-    props={{
-      listOfAwesomePeople,
-      onClick={handleClickOnListOfAwsomePeople}
-    }}
-  />
-)
+const AwesomeContainer = () => {
+  const listOfAwesomePeople = ['Ada Lovelace', 'Margaret Hamilton']
+
+  const handleClickOnListItem = (item) => alert(`You clicked on ${item}`)
+
+  return (
+    <Feature
+      name="AWESOME"
+      activeComponent={AwesomeComponent}
+      props={{
+        list: listOfAwesomePeople,
+        onClickOnListItem: handleClickOnListItem
+      }}
+    />
+  )
+}
+
+export default AwesomeContainer
 ```
 
 Features json example:
